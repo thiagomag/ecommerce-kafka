@@ -6,8 +6,9 @@ public class FraudDetectorService {
 
     public static void main(String[] args) {
         var fraudDetector = new FraudDetectorService();
-        var service = new KafkaService(FraudDetectorService.class.getName(), "ECOMMERCE_NEW_ORDER", fraudDetector::parse);
-        service.run();
+        try (var service = new KafkaService(FraudDetectorService.class.getName(), "ECOMMERCE_NEW_ORDER", fraudDetector::parse)) {
+            service.run();
+        }
     }
 
     private void parse(ConsumerRecord<String, String> record) {
