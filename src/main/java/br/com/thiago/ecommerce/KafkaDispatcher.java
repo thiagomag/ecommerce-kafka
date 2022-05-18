@@ -1,6 +1,5 @@
 package br.com.thiago.ecommerce;
 
-import com.google.gson.Gson;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
